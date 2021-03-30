@@ -1,0 +1,22 @@
+<mat-card class="film-card-short">
+    <div class="film-card-short__first-block">
+        <img class="clickable" (click)="filmClick.emit(film.id)" mat-card-md-image [src]="film.poster.originalLink">
+        <div class="film-card-short__rating">{{film.rating}}</div>
+    </div>
+    <div class="film-card-short__second-block">
+        <mat-card-title class="clickable" (click)="filmClick.emit(film.id)"> {{film.title}}</mat-card-title>
+        <mat-card-subtitle> {{film.titleOrigin}}</mat-card-subtitle>
+        <mat-card-content> {{film.shortDescription}}</mat-card-content>
+    </div>
+    <mat-card-actions class="film-card-short__actions">
+        <button mat-mini-fab [color]="marked?'primary':'secondary'" (click)="markButtonClick(film.id)">
+            <mat-icon>bookmark</mat-icon>
+        </button>
+        <button mat-mini-fab [color]="watched?'primary':'secondary'" (click)="watchButtonClick(film.id)">
+            <mat-icon>visibility</mat-icon>
+        </button>
+        <button mat-mini-fab [color]="favorite?'primary':'secondary'" (click)="favoriteButtonClick(film.id)">
+            <mat-icon>star</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>

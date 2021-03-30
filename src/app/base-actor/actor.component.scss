@@ -1,0 +1,63 @@
+.actor-card-short {
+  display: flex;
+  @media (min-width: 0px) and (max-width: 499px) {
+    flex-direction: column;
+    &__actions {
+      margin: 0;
+      padding: 0;
+      align-self: center;
+      button {
+        margin-bottom: 5px;
+      }
+    }
+  }
+  @media (min-width: 500px) {
+    flex-direction: row;
+    &__actions {
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+      button {
+        margin-bottom: 5px;
+      }
+    }
+  }
+  &:hover {
+    background-color: inherit;
+  }
+  &__first-block {
+    flex: 0 0 15%;
+    min-width: 150px;
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    position: relative;
+  }
+  &__second-block {
+    min-width: 200px;
+    flex: 1 1 auto;
+    padding: 0px 10px;
+  }
+}
+
+.table-about {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  &__title,
+  &__description {
+    padding: 5px 0px;
+  }
+  &__description {
+    padding-left: 10px;
+  }
+  span:nth-last-child(1),
+  span:nth-last-child(2) {
+    border-bottom: none;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}

@@ -1,0 +1,44 @@
+<div class="film-page" *ngIf="film!=undefined">
+    <div class="film-page__poster poster">
+        <img id="posterId" [src]="'./images/posters/'+film.poster.name+'.jpeg'" alt="">
+        <span class="poster__rating mat-title">{{film.rating}}</span>
+    </div>
+    <div class="film-page__properties">
+        <h2 class="mat-title">{{film.title}}</h2>
+        <p class="mat-subheading-2">{{film.titleOrigin}}</p>
+        <p class="mat-body-1">{{film.shortDescription}}</p>
+
+        <h2>О фильме</h2>
+
+        <div class="film-page__table-about table-about">
+            <ng-container *ngFor="let tableAboutItem of film.tableAbout">
+                <span class="table-about__title">{{tableAboutItem.title}}</span>
+                <span class="table-about__description">{{tableAboutItem.description}}</span>
+            </ng-container>
+        </div>
+    </div>
+    <div class="film-page__actors">
+        <h2 class="mat-title">Актеры</h2>
+        <a (mouseenter)="onMouseEnter.next({target:$event,actorId:actorListItem.id})"
+            (mouseleave)="onMouseEnter.next(undefined)" [href]="'./actor/'+actorListItem.id"
+            *ngFor="let actorListItem of film.actors">{{actorListItem.actor}}</a>
+    </div>
+
+    <div class="film-page__description">
+        <H2 class="mat-title">Описание</H2>
+        <p class="mat-subheading-2">{{film.description}}</p>
+    </div>
+
+    <mat-card *ngIf="actor!=undefined" (mouseenter)="isMouseOnActorHint=true"
+        (mouseleave)="isMouseOnActorHint=false;onMouseEnter.next(undefined)" id="actorHint"
+        class="film-page__actor-hint actor-hint"
+        [ngStyle]="{'left':isActorHintVisible?position.left:'-100%' ,'top':position.top,'opacity': isActorHintVisible?'1':'0'}">
+        <div class="actor-hint__avatar">
+            <img [src]="'./images/actors/'+actor.poster.name+'.jpeg'">
+        </div>
+        <div class="actor-hint__name">
+            <mat-card-title> {{actor.primaryName}} </mat-card-title>
+            <mat-card-subtitle> {{actor.secondaryName}} </mat-card-subtitle>
+        </div>
+    </mat-card>
+</div>

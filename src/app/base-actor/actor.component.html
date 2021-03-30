@@ -1,0 +1,25 @@
+<mat-card class="actor-card-short">
+    <div class="actor-card-short__first-block">
+        <img class="clickable" (click)="actorClick.emit(actor.id)" mat-card-md-image
+            [src]="'./images/actors/'+actor.poster.name+'.jpeg'">
+    </div>
+    <div class="actor-card-short__second-block">
+        <mat-card-title class="clickable" (click)="actorClick.emit(actor.id)"> {{actor.primaryName}}</mat-card-title>
+        <mat-card-subtitle> {{actor.secondaryName}}</mat-card-subtitle>
+
+        <div class="actor-card-short__table-about table-about">
+            <ng-container *ngFor="let tableAboutItem of actor.tableAbout ; let i=index">
+                <ng-container *ngIf="i<3">
+                    <span class="table-about__title">{{tableAboutItem.title}}</span>
+                    <span class="table-about__description">{{tableAboutItem.description}}</span>
+                </ng-container>
+
+            </ng-container>
+        </div>
+    </div>
+    <mat-card-actions class="actor-card-short__actions">
+        <button mat-mini-fab [color]="favorite?'primary':'secondary'" (click)="favoriteButtonClick(actor.id)">
+            <mat-icon>star</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,14 @@
+<form class="search">
+    <mat-form-field class="search__field">
+        <mat-label>Search</mat-label>
+        <input matInput aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option (click)="router.navigateByUrl(item.link)" *ngFor="let item of findItems" [value]="item.value">
+                <div class="search__content">
+                    <img class="search__img" aria-hidden [src]="item.img">
+                    <span>{{item.text}}</span>
+                </div>
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</form>

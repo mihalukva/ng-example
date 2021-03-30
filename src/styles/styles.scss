@@ -1,0 +1,32 @@
+html,
+body {
+  height: 100%;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+main {
+  padding: 10px 0px;
+}
+
+.list-page {
+  &__item {
+    margin-top: 10px;
+  }
+  &__controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  &__search {
+    margin-left: 1rem;
+    flex: 1 0 auto;
+  }
+}

@@ -1,0 +1,18 @@
+<div class="actor-page" *ngIf="actor!=null">
+    <div class="actor-page__poster poster">
+        <img id="posterId" [src]="'./images/actors/'+actor.poster.name+'.jpeg'" alt="">
+    </div>
+    <div class="actor-page__properties">
+        <h2 class="mat-title">{{actor.primaryName}}</h2>
+        <p class="mat-subheading-2">{{actor.secondaryName}}</p>
+        <p class="mat-body-1">{{actor.shortDescription}}</p>
+
+        <h2>Об актёре</h2>
+        <div class="actor-page__table-about table-about">
+            <ng-container *ngFor="let tableAboutItem of actor.tableAbout">
+                <span class="table-about__title">{{tableAboutItem.title}}</span>
+                <span class="table-about__description">{{tableAboutItem.description}}</span>
+            </ng-container>
+        </div>
+    </div>
+</div>

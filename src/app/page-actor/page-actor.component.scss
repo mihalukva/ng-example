@@ -1,0 +1,44 @@
+@import "variables";
+
+.poster {
+  img {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.actor-page {
+  position: relative;
+  display: grid;
+  @media (min-width: 0px) and (max-width: 599px) {
+    grid-template-rows: auto max-content;
+  }
+  @media (min-width: 600px) {
+    grid-template-columns: minmax(160px, 400px) minmax(max-content, auto);
+  }
+  &__poster {
+    padding-right: 10px;
+  }
+  &__properties {
+    padding-left: 10px;
+    border-left: 1px solid $border-color-light;
+  }
+}
+
+.table-about {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  &__title,
+  &__description {
+    border-bottom: 1px solid $border-color-light;
+    padding: 5px 0px;
+  }
+  &__description {
+    padding-left: 20px;
+  }
+  span:nth-last-child(1),
+  span:nth-last-child(2) {
+    border-bottom: none;
+  }
+}

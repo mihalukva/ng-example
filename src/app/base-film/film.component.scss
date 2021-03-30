@@ -1,0 +1,53 @@
+.film-card-short {
+  display: flex;
+  @media (min-width: 0px) and (max-width: 499px) {
+    flex-direction: column;
+    &__actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      padding-bottom: 10px;
+    }
+  }
+  @media (min-width: 500px) {
+    flex-direction: row;
+    &__actions {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      button {
+        margin-bottom: 5px;
+      }
+    }
+  }
+  &:hover {
+    background-color: inherit;
+  }
+  &__first-block {
+    flex: 0 0 15%;
+    min-width: 150px;
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    position: relative;
+  }
+  &__rating {
+    position: absolute;
+    left: -5px;
+    top: 5px;
+    background-color: green;
+    padding: 3px;
+    border-radius: 3px;
+  }
+  &__second-block {
+    min-width: 200px;
+    flex: 1 1 auto;
+    padding: 0px 10px;
+  }
+}
+.clickable {
+  cursor: pointer;
+}
